@@ -5,9 +5,10 @@
 
 body{
 	background-image: url(../img/login-bg.jpg);
-	background-size: 100%;
+	background-size: cover;
 	background-repeat: no-repeat;
 	font-family: arial;
+	min-height: 100vh;
 }
 .center{
 	margin: 0 auto;
