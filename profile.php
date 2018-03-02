@@ -60,7 +60,31 @@
   </div>
 
   <div id="following" class="tabcontent">
-    
+    <div class="cardview">
+      <div class="card-cover">
+        <img id="card-cover-image" src="img/logo.png" alt="">
+        <img id="card-profile-image" src="img/logo.png" alt="">
+      </div>
+      <div class="card-content">
+        <span>Adı</span>
+        <span>Kullanıcı Adı</span>
+        <input type="button" value="Following" class="button green">
+        <div class="card-other">
+          <div class="card-works">
+            <span>8</span>
+            <span>Works</span>
+          </div>
+          <div class="card-following">
+            <span>8</span>
+            <span>Following</span>
+          </div>
+          <div class="card-followers">
+            <span>8</span>
+            <span>Followers</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div id="edit-profil" class="tabcontent">
