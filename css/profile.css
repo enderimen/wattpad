@@ -61,7 +61,6 @@
 .tabcontent {
     display: none;
     padding: 6px 12px;
-    border: 1px solid #ccc;
     border-top: none;
     padding-left: 0;
     margin-top: 20px;
@@ -119,4 +118,52 @@
 
 .story-feature{
 	margin-left: 20px;
+}
+.form-element {
+	margin: 0 auto;
+}
+.form-element form{
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+	width: 400px;
+}
+
+.location {
+	display: flex;
+	flex-grow: 1; 
+	align-items: center;
+	justify-content: space-between;
+}
+
+.about {
+	display: flex;
+	flex-grow: 1; 
+	justify-content: space-between;
+}
+
+.website {
+	display: flex;
+	flex-grow: 1; 
+	align-items: center;
+	justify-content: space-between;
+}
+
+.button-save {
+	display: flex;
+	flex-grow: 1; 
+	justify-content: space-between;
+	margin-right: -20px; 
+}
+
+.location, .about, .website, .button-save {
+	margin-top: 20px;
+}
+
+.input {
+	height: 40px;
+	width: 300px;
+	border-radius: 3px;
+	border: none; 
 }
