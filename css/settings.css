@@ -1,0 +1,58 @@
+.main-content {
+	display: flex;
+	justify-content: space-around;
+	height: 600px;
+	width: 800px;
+	margin: 40px auto;
+}
+
+.customize form{
+	height: 600px;
+	width: 250px;
+	margin-left: 20px;
+	box-shadow: 1px 1px 1px gray;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.account-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	height: 600px;
+	width: 550px;
+	box-shadow: 1px 1px 1px gray;
+}
+
+.user-profile-username, 
+.user-profile-password,
+.user-profile-mail,
+.user-profile-fullname,
+.user-profile-birthdate,
+.user-profile-gender,
+.user-profile-about {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+
+.user-profil-save-button {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.account-content textarea {
+	resize: none;
+	border:none;
+}
+
+.account-content select, #birthdate {
+	width: 150px;
+	height: 40px;
+	border: none; 
+}
