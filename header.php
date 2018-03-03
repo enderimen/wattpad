@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/fontawesome.min.css">
   <link rel="stylesheet" href="css/create.css">
   <link rel="stylesheet" href="css/profile.css">
+  <link rel="stylesheet" href="css/settings.css">
   <link rel="stylesheet" href="css/main.css">
 
   <!--Shortcut icon-->
@@ -77,7 +78,7 @@
               <a href="profile.php">Profilim</a>
               <a href="#">Okuma Listem</a>
               <a href="#">Hikayelerim</a>            
-              <a href="#">Ayarlar</a>
+              <a href="settings.php">Ayarlar</a>
               <a href="#">Çıkış</a>
             </div>
           </li>
