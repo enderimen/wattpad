@@ -1,0 +1,55 @@
+.reading-list-content {
+	height: 100%;
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+
+.reading-list-content .title {
+	height: 60px;
+	display: flex;
+	align-items: center;
+}
+
+.reading-list-content .library-cardview {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	height: 375px;
+	width: 200px;
+	margin-top: 20px; 
+	margin-left: 40px;
+	border-radius: 3px;
+	box-shadow: 1px 1px 5px gray;
+}
+
+.reading-cardview-profile-name {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.reading-cardview-profile-photo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.reading-cardview-profile-photo img{ 
+	border-radius: 50%;
+}
+
+.reading-list-user-info {
+	display: flex;
+}
+
+.reading-list-other {
+	width: 200px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.reading-list-other{
+	margin-bottom: 10px;
+}
