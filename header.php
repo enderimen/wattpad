@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="css/create.css">
   <link rel="stylesheet" href="css/profile.css">
   <link rel="stylesheet" href="css/settings.css">
+  <link rel="stylesheet" href="css/slider.css">
+  <link rel="stylesheet" href="css/jquery.jscrollpane.css">
+  <link rel="stylesheet" href="css/reading-list.css">
   <link rel="stylesheet" href="css/main.css">
 
   <!--Shortcut icon-->
@@ -76,7 +79,7 @@
             <a href="javascript:void(0)" class="dropbtn">Kullanıcı</a>
             <div class="dropdown-content">
               <a href="profile.php">Profilim</a>
-              <a href="#">Okuma Listem</a>
+              <a href="reading-list.php">Okuma Listem</a>
               <a href="#">Hikayelerim</a>            
               <a href="settings.php">Ayarlar</a>
               <a href="#">Çıkış</a>
