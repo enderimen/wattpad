@@ -8,6 +8,7 @@ body{
 	font-family: "Arial";
 	font-weight: bold;
 }
+
 header{
 	height: 54px;
 	width: 100%;
@@ -107,17 +108,15 @@ header{
 /*container*/
 
 .container{
-	height: 740px;
+	height: 100%;
 	width: 1000px;
 	margin: 20px auto;
-	background-color: red;
 }
 
 .discover-module{
-	height: 370px;
+	height: 550px;
 	width: 1000px;
 	margin: 0 auto;
-	background-color: yellow;
 }
 
 .search{
@@ -128,7 +127,7 @@ header{
 }
 
 .search #search{
-  width: 35%;
+  width: 550px;
   height:30px;
   margin-left: 45px;
   margin-top: 12px;
@@ -147,7 +146,7 @@ header{
   width:30px;
   height:30px;
   margin-top: 12px;
-  margin-left: 36%;
+  margin-left: 570px;
   border-radius: 0 5px 5px 0;
   border-style: none;
   position: absolute;
