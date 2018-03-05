@@ -12,7 +12,7 @@
     <script src="js/customize.js"></script>
  
     <!--Css-->
-     <link href="css/login.css" rel="stylesheet">
+     <link href="../css/login.css" rel="stylesheet">
 
     <!--Shortcut icon-->
       <link rel="shortcut icon" href="img/icon.png" type="image/x-icon" />
@@ -45,7 +45,7 @@
           <input type="text" name="password" placeholder="Password"/>
           <input type="submit" value="Log in"/>
         </form>
-        <div class="signup"><span>Don't have an account? <a href="">Sign up</a></span></div>
+        <div class="signin"><span>Don't have an account? <a href="account.php">Sign up</a></span></div>
       </div>
     </div>
   </body>

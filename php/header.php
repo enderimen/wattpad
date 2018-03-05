@@ -8,14 +8,14 @@
   <title>Wattpad</title>
   
   <!--Css-->
-  <link rel="stylesheet" href="css/fontawesome.min.css">
-  <link rel="stylesheet" href="css/create.css">
-  <link rel="stylesheet" href="css/profile.css">
-  <link rel="stylesheet" href="css/settings.css">
-  <link rel="stylesheet" href="css/slider.css">
-  <link rel="stylesheet" href="css/jquery.jscrollpane.css">
-  <link rel="stylesheet" href="css/reading-list.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="../css/fontawesome.min.css">
+  <link rel="stylesheet" href="../css/create.css">
+  <link rel="stylesheet" href="../css/profile.css">
+  <link rel="stylesheet" href="../css/settings.css">
+  <link rel="stylesheet" href="../css/slider.css">
+  <link rel="stylesheet" href="../css/jquery.jscrollpane.css">
+  <link rel="stylesheet" href="../css/reading-list.css">
+  <link rel="stylesheet" href="../css/main.css">
 
   <!--Shortcut icon-->
   <link rel="shortcut icon" href="img/icon.png" type="image/x-icon" />

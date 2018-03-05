@@ -111,7 +111,7 @@
 								<div class="slider-labels gray-text">
 									<div class="label">
 										features
-									</div>
+									</div>	
 								</div>
     						</div>
     					</div>

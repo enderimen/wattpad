@@ -70,7 +70,7 @@ h1{
 	color: #555555;
 }
 
-.signup{
+.signin{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -82,7 +82,7 @@ h1{
 	border-radius: 0 0 4px 4px;		
 }
 
-.signup a{
+.signin a{
 	text-decoration: none;
 	font-weight: bold;
 	color: #875555;
