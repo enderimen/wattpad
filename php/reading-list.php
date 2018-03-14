@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+<?php require_once 'config.php';  include 'header.php'; ?>
 
 <div class="container">
 	<div class="title">
@@ -8,14 +8,14 @@
 	<div class="reading-list-content">
 		
 		<div class="library-cardview">
-			<img src="img/logo.png" alt="" height="260" width="200" id="cover-image">
+			<img src="../img/logo.png" alt="" height="260" width="200" id="cover-image">
 			<div class="reading-list-user-info">
 				<div class="reading-cardview-profile-name">
 					<span>Kitap Adı</span>
 					<span>Kullanıcı Adı</span>
 				</div>
 				<div class="reading-cardview-profile-photo">
-					<img src="img/logo.png" alt="" height="48" width="48">
+					<img src="../img/logo.png" alt="" height="48" width="48">
 				</div>
 			</div>
 			<div class="reading-list-other">

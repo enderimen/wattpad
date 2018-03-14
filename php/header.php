@@ -1,5 +1,12 @@
+<?php
+  
+  /*Settings sayfası için gerekli bilgiler çekildi*/
+  $sql = mysqli_query( $connection , "SELECT * FROM kullanicilar WHERE user_name = '".$_SESSION['username']."'");
+  $data = mysqli_fetch_array($sql);
+  
+?>
+
 <!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +25,7 @@
   <link rel="stylesheet" href="../css/main.css">
 
   <!--Shortcut icon-->
-  <link rel="shortcut icon" href="img/icon.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon" />
   
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,7 +41,7 @@
         
         <div class="logo">
           <a href="index.php">
-            <img src="img/logo.png" alt="Anasayfa" title="Anasayfa">
+            <img src="../img/logo.png" alt="Anasayfa" title="Anasayfa">
           </a>
         </div>
         
@@ -76,13 +83,13 @@
 
         <div class="setting">
           <li class="dropdown-settings">
-            <a href="javascript:void(0)" class="dropbtn">Kullanıcı</a>
+            <a href="javascript:void(0)" class="dropbtn"><?=$data['full_name']?></a>
             <div class="dropdown-content">
               <a href="profile.php">Profilim</a>
               <a href="reading-list.php">Okuma Listem</a>
               <a href="#">Hikayelerim</a>            
               <a href="settings.php">Ayarlar</a>
-              <a href="#">Çıkış</a>
+              <a href="logout.php">Çıkış</a>
             </div>
           </li>
         </div>

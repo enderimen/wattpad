@@ -1,5 +1,12 @@
-    <?php include 'header.php'; ?>
+    <?php  
+        require_once 'config.php'; 
+        
+        if ($_SESSION['session']) {
+                include 'header.php';  
+    ?>
 
+
+    
     <div class="container">
     	<div class="discover-module">
     		<div class="discover-header">
@@ -11,7 +18,7 @@
     				<div class="ca-item ca-item-1">
     					<div class="ca-item-main">
     						<div class="ca-icon">
-    							<img src="img/book1.jpg" alt="" height="400" width="200">
+    							<img src="../img/book1.jpg" alt="" height="400" width="200">
     						</div>
     						<div class="slide-content">
     							<span>Başlık</span>
@@ -38,7 +45,7 @@
     				<div class="ca-item ca-item-2">
     					<div class="ca-item-main">
     						<div class="ca-icon">
-    							<img src="img/book1.jpg" alt="" height="400" width="200">
+    							<img src="../img/book1.jpg" alt="" height="400" width="200">
     						</div>
     						<div class="slide-content">
     							<span>Başlık</span>
@@ -65,7 +72,7 @@
     				<div class="ca-item ca-item-3">
     					<div class="ca-item-main">
     						<div class="ca-icon">
-    							<img src="img/book1.jpg" alt="" height="400" width="200">
+    							<img src="../img/book1.jpg" alt="" height="400" width="200">
     						</div>
     						<div class="slide-content">
     							<span>Başlık</span>
@@ -92,7 +99,7 @@
     				<div class="ca-item ca-item-4">
     					<div class="ca-item-main">
     						<div class="ca-icon">
-    							<img src="img/book1.jpg" alt="" height="400" width="200">
+    							<img src="../img/book1.jpg" alt="" height="400" width="200">
     						</div>
     						<div class="slide-content">
     							<span>Başlık</span>
@@ -120,11 +127,17 @@
     		</div>
     	</div>
     </div>
+
+    <?php }else{
+            header("refresh:0.02; url=login.php");
+        }
+    ?>
+
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
     <!-- the jScrollPane script -->
-    <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-    <script type="text/javascript" src="js/jquery.contentcarousel.js"></script>
+    <script type="text/javascript" src="../js/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="../js/jquery.contentcarousel.js"></script>
     <script type="text/javascript">
     	$('.ca-container').contentcarousel();
     </script>

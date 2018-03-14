@@ -1,9 +1,9 @@
-<?php include 'header.php'; ?>
+<?php require_once 'config.php'; include 'header.php'; ?>
 
-<div class="timeline-image">
-  <img src="img/logo.png" alt="Avatar">
-  <h1>Ender İMEN</h1>
-  <p>@enderimen</p>
+<div class="timeline-image" style="background-position: bottom;background-image: url(<?=$data['background_image']?>);">
+  <img src="<?=$data['profile_photo']?>" alt="Avatar">
+  <h1><?=$data['full_name']?></h1>
+  <p>@<?=$data['user_name']?></p>
 
   <div class="details">
     <div class="post">
@@ -43,7 +43,7 @@
       </div>
       <div class="storyDetails">
         <div class="storyCover">
-          <img src="img/logo.png" alt="Resimsiz">
+          <img src="../img/logo.png" alt="Resimsiz">
         </div>
         <div class="story-feature">
           <div class="story-title">
@@ -62,8 +62,8 @@
   <div id="following" class="tabcontent">
     <div class="cardview">
       <div class="card-cover">
-        <img id="card-cover-image" src="img/logo.png" alt="">
-        <img id="card-profile-image" src="img/logo.png" alt="">
+        <img id="card-cover-image" src="../img/logo.png" alt="">
+        <img id="card-profile-image" src="../img/logo.png" alt="">
       </div>
       <div class="card-content">
         <span>Adı</span>
@@ -89,18 +89,18 @@
 
   <div id="edit-profil" class="tabcontent">
     <div class="form-element">
-     <form action="">
+     <form action="transaction.php" method="POST">
       <div class="location">
         <span>Location</span>
-        <input type="text" class="input" placeholder="Location">
+        <input type="text" class="input" placeholder="Location" value="">
       </div>
       <div class="about">
         <span>About</span>
-        <textarea name="" id="" cols="40" rows="10"></textarea>
+        <textarea name="about" id="" cols="40" rows="10"><?=$data['biography']?></textarea>
       </div>
       <div class="website">
         <span>Website</span>
-        <input type="text" class="input" placeholder="Website adress">
+        <input type="text" class="input" placeholder="Website adress" value="">
       </div>
       <div class="button-save">
         <input type="button" value="Cancel" class="button">
@@ -135,8 +135,7 @@
     evt.currentTarget.className += " active";
   }
 </script>
-<script src="js/fontawesome.min.js"></script>
-<script src="js/customize.js"></script>
+<script src="../js/customize.js"></script>
 
 </body>
 </html>
