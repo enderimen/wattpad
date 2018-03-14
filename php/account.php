@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    
-    <title>Login - Wattpad</title>
+    <title>Create Account - Wattpad</title>
 
     <!--Javascript-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -40,11 +40,11 @@
       </div>
       <div class="account-form">
         <h1>Create Account</h1>
-        <form action="POST">
-          <input type="text" name="mail" placeholder="E-Mail"/>
-          <input type="text" name="fullname" placeholder="Fullname"/>
-          <input type="text" name="username" placeholder="Username"/>
-          <input type="password" name="password" placeholder="Password"/>
+        <form action="transaction.php" method="POST">
+          <input type="text" name="mail" placeholder="E-Mail" required="required" />
+          <input type="text" name="fullname" placeholder="Fullname" required="required" />
+          <input type="text" name="username" placeholder="Username" required="required" />
+          <input type="password" name="password" placeholder="Password" required="required" />
           <input type="submit" name="signup" value="Create Account"/>
         </form>
         <div class="signup"><span>Do you have an account?<a href="login.php">Log in</a></span></div>

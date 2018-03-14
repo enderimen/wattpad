@@ -40,10 +40,10 @@
       </div>
       <div class="login-form">
         <h1>Log in to Wattpad</h1>
-        <form action="">
-          <input type="text" name="username" placeholder="Username"/>
-          <input type="text" name="password" placeholder="Password"/>
-          <input type="submit" value="Log in"/>
+        <form action="transaction.php" method="POST">
+          <input type="text" name="username" placeholder="Username" required="required" />
+          <input type="password" name="password" placeholder="Password" required="required" />
+          <input type="submit" name="signin" value="Log in"/>
         </form>
         <div class="signin"><span>Don't have an account? <a href="account.php">Sign up</a></span></div>
       </div>
