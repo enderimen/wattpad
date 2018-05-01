@@ -25,6 +25,10 @@ body{
 	justify-content: space-between;
 }
 
+.head a{
+	text-decoration: none;
+}
+
 .button{
 	height: 40px;
 	width: 150px;
