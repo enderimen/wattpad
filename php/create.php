@@ -3,10 +3,8 @@
 
       <div class="container-story">
         <div class="head">
-          <h1>My Stories</h1>
-          <form action="">
-            <input type="submit" value="+New Story" class="button">
-          </form>
+          <h1>My Works</h1>
+            <a href="create-content.php"><input type="submit" value="+New Story" class="button"></a>
         </div>
         <div class="content">
           <img src="img/logo.png" alt="Cover Image" title="Cover" class="image-style">
