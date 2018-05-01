@@ -1,4 +1,6 @@
-<?php require_once 'config.php'; include 'header.php'; ?>
+<?php require_once 'config.php'; 
+  if ($_SESSION['session_control'] == true) {
+      include 'header.php';   ?>
 
 <div class="timeline-image" style="background-position: bottom;background-image: url(<?=$data['background_image']?>);">
   <img src="<?=$data['profile_photo']?>" alt="Avatar">
@@ -12,7 +14,7 @@
     </div>
     <div class="reading-list">
       <span>1</span>
-      <div>Reading List</div>  
+      <div>Reading List</div> 
     </div>
     <div class="followers">
       <span>1</span>
@@ -25,7 +27,6 @@
   <div class="tab">
     <button class="tablinks" onclick="openTab(event, 'about')">About</button>
     <button class="tablinks" onclick="openTab(event, 'following')">Following</button>
-    <button class="tablinks" onclick="openTab(event, 'edit-profil')">Edit Profil</button>
   </div>
 
   <div id="about" class="tabcontent show">
@@ -86,30 +87,12 @@
       </div>
     </div>
   </div>
+</div>
 
-  <div id="edit-profil" class="tabcontent">
-    <div class="form-element">
-     <form action="transaction.php" method="POST">
-      <div class="location">
-        <span>Location</span>
-        <input type="text" class="input" placeholder="Location" value="">
-      </div>
-      <div class="about">
-        <span>About</span>
-        <textarea name="about" id="" cols="40" rows="10"><?=$data['biography']?></textarea>
-      </div>
-      <div class="website">
-        <span>Website</span>
-        <input type="text" class="input" placeholder="Website adress" value="">
-      </div>
-      <div class="button-save">
-        <input type="button" value="Cancel" class="button">
-        <input type="submit" value="Save" class="button">
-      </div>
-    </form>
-  </div>
-</div>
-</div>
+<?php }else{
+  header("Location:login.php");
+}
+?>
 
 <!--Javascript-->
 <script>
@@ -135,7 +118,6 @@
     evt.currentTarget.className += " active";
   }
 </script>
-<script src="../js/customize.js"></script>
 
 </body>
 </html>

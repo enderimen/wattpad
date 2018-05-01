@@ -1,4 +1,6 @@
-<?php require_once 'config.php';  include 'header.php'; ?>
+<?php require_once 'config.php'; 
+  if ($_SESSION['session_control'] == true) {
+      include 'header.php';   ?>
 
 <div class="container">
 	<div class="title">
@@ -31,6 +33,11 @@
 		</div>
 	</div>
 </div>
+
+<?php }else{
+   header("Location:login.php");
+}
+?>
 
 </script>
 </body>
