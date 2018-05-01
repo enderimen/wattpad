@@ -13,10 +13,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <title>Wattpad</title>
-  
+
   <!--Css-->
   <link rel="stylesheet" href="../css/fontawesome.min.css">
   <link rel="stylesheet" href="../css/create.css">
+  <link rel="stylesheet" href="../css/create-content.css">
   <link rel="stylesheet" href="../css/profile.css">
   <link rel="stylesheet" href="../css/settings.css">
   <link rel="stylesheet" href="../css/slider.css">
