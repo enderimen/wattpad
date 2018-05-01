@@ -1,10 +1,9 @@
     <?php  
         require_once 'config.php'; 
         
-        if ($_SESSION['session']) {
+        if ($_SESSION['session_control'] == true) {
                 include 'header.php';  
     ?>
-
 
     
     <div class="container">
@@ -129,7 +128,7 @@
     </div>
 
     <?php }else{
-            header("refresh:0.02; url=login.php");
+             header("Location:login.php");
         }
     ?>
 
