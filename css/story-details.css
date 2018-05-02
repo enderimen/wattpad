@@ -1,0 +1,56 @@
+.table-of-content {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.table-of-content-head {
+	display: flex;
+	justify-content: space-between;
+	height: 80px;
+	line-height: 80px;
+	background-color: #fff;
+	border-radius: 5px 5px 0 0;
+}
+
+.table-of-content-head a{
+	margin-right: 20px;
+	text-decoration: none;
+}
+
+
+.stroy-card-view {
+	display: flex;
+	height: 80px;
+	background-color: #fff;
+	border: 0.1px solid gray;
+	margin-top: 3px;
+}
+
+.title-date {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin-left: 30px;
+}
+
+.title-date .title a{
+	color: #000;
+	text-decoration: none;
+}
+
+.title-date .title a:hover{
+	text-decoration: underline;
+}
+
+.story-rate {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	flex: 2;
+}
+
+.story-rate span{
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
