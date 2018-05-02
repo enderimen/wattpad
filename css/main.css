@@ -15,6 +15,17 @@ header{
 	background-color: #F89B33;
 }
 
+.flex-column {
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mind {
+  text-align: center;
+}
+
 .center{
 	height: 54px;
 	width: 1300px;

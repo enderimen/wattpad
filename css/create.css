@@ -11,7 +11,7 @@ body{
 	width: 1000px;
 	margin: 50px auto; 
 	display: flex;
-	box-shadow: 3px 3px #bdbdbd;
+	box-shadow: 1px 1px 2px 1px #bdbdbd;
 	flex-direction: column;
 	justify-content: center;	
 }
@@ -53,28 +53,33 @@ body{
 .content{
 	height: 200px;
 	width: 100%;
+	margin-top: 5px;
 	border: none;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	align-items: center;
 	background-color: #fff;
-	border-radius: 0 0 10px 10px; 
 }
-.image-style{
+
+.content a {
+	text-decoration: none;
+	color: #000;
+}
+
+.content a:hover {
+	text-decoration: underline;
+}
+
+.image-style {
 	margin-left: 10px;
-	height: 125px;
-	width: 80px;
+	height: 180px;
+	width: 120px;
 }
-.story-detail{
-	display: flex;
-	flex-direction: column;
+
+.story-detail {
 	margin-left: 20px;
 }
-.writing{
-	display: flex;
-	flex-grow: 1;
-	justify-content: flex-end;
-}
+
 .story-detail p , .story-other{
 	margin-top: 30px; 
 }
