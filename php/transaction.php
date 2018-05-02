@@ -112,7 +112,7 @@ if (isset($_POST['signup'])) {
 
 //  Profil fotoğrafı değiştirme
 
-				if(isset($_POST['profile-save-button'])){
+if(isset($_POST['profile-save-button'])){
 
     if ($_FILES["profile-image-file"]["size"] < 1024*1024*1024*1024){//Dosya boyutu 2Mb tan az olsun
 
@@ -207,60 +207,119 @@ if (isset($_POST['save-story-info'])) {
 	$story_title	=	trim($_POST['story-title']);
 	$story_desc		=	trim($_POST['story-desc']);
 	$story_genre	=	trim($_POST['select-genre']);
+	
+	$add_story	=	mysqli_query( $connection, "INSERT INTO stories 
+		(
+		userID, 
+		story_title, 
+		story_desc, 
+		story_genre
+		)
+		VALUES
+		(
+		'".$_SESSION['id']."',
+		'$story_title',
+		'$story_desc',
+		'$story_genre'
+	)");
 
-	if ($_FILES["story-cover-file"]["size"] < 1024*1024*1024*1024){	//Dosya boyutu 2Mb tan az olsun
+	if ($add_story) {
 
-		if ($_FILES["story-cover-file"]["type"] == "image/jpeg" || $_FILES["story-cover-file"]["type"] == "image/png"){
-			$dosya_adi = $_FILES["story-cover-file"]["name"];
+		header("Location:story-write.php");
+	}
+}
 
-			$uzanti 	= 	substr($dosya_adi,-4,4);
-			$uret 		= 	array("as","rt","ty","yu","fg");
-			$sayi_tut 	= 	rand(1,10000);
-			$yeni_ad 	= 	"../img/story_photo/photo".$uret[rand(0,4)].$sayi_tut.$uzanti;
+// Yazılan hikayeyi kaydediyoruz
 
-			if (move_uploaded_file($_FILES["story-cover-file"]["tmp_name"] , $yeni_ad)){
+if (isset($_POST['story-content-save'])) {
 
-				
-				$story_photo_update = mysqli_query($connection,"UPDATE stories SET story_photo = '".$yeni_ad."' WHERE userID = '".$_SESSION['id']."'");
+	$story_content	=	trim($_POST['story-content']);
+	
+	$add_story_content = mysqli_query($connection,"UPDATE stories SET story_content = '".$story_content."' WHERE userID = '".$_SESSION['id']."'");
 
-				if ($story_photo_update) {
+	if ($add_story_content) {
 
-					header("Location:create-content.php");
-				}
-			}
-
-			$add_story	=	mysqli_query( $connection, "INSERT INTO stories 
-					(
-					userID, 
-					story_title, 
-					story_desc, 
-					story_genre
-					) 
-					VALUES 
-					(
-					'".$_SESSION['id']."',
-					'$story_title',
-					'$story_desc',
-					'$story_genre'
-				)");
-
-			if ($add_story) {
-
-					header("Location:create-content.php");
-				}
-
-		}
+		echo '<script language="javascript">
+		alert("Story Saved!");
+		</script>'; 
+		header("Location:create-content.php");
 	}
 }
 
 
+// Hikayenin kapak resmini güncelliyoruz.
+
+if(isset($_POST['story-cover-save'])){
+
+    if ($_FILES["story-cover-file"]["size"] < 1024*1024*1024*1024){//Dosya boyutu 2Mb tan az olsun
+
+    	if ($_FILES["story-cover-file"]["type"] == "image/jpeg" || $_FILES["story-cover-file"]["type"] == "image/png"){
+    		
+    		$dosya_adi = $_FILES["story-cover-file"]["name"];
+    		$uzanti = substr($dosya_adi,-4,4);
+    		$uret = array("as","rt","ty","yu","fg");
+    		$sayi_tut = rand(1,10000);
+    		$yeni_ad = "../img/story_photo/photo".$uret[rand(0,4)].$sayi_tut.$uzanti;
+
+    		$story_photo_update = mysqli_query($connection,"UPDATE stories SET story_photo = '".$yeni_ad."' WHERE userID = '".$_SESSION['id']."'");
+
+    		if (move_uploaded_file($_FILES["story-cover-file"]["tmp_name"] , $yeni_ad)){
 
 
+    			if (mysqli_affected_rows($connection)){
+    				echo
+    				'<script language="javascript">
+    				alert("Kapak Fotoğrafı Güncellendi.");
+    				</script>';    
+    				header("Location:create-content.php");
+    			}                                                         
+    			else{
+    				header("Location:create-content.php");
+    			}
+    		}else{
+    			echo '<script language="javascript">
+    			alert("Dosya Yüklenemedi!");
+    			</script>'; 
 
+    			header("Location:create-content.php");
+    		}
+    	}else{
+    		header("Location:create-content.php"); 
+    	}
+    }else{
+    	echo '<script language="javascript">
+    	alert("Dosya boyutu 2 Mb ı geçemez!");
+    	</script>'; 
+    	header("Location:create-content.php");
+    }
+}
 
+if (isset($_POST['story-branch-save'])) {
 
+	$story_title			=	trim($_POST['story-title']);
+	$story_branch_content	=	trim($_POST['story-branch-content']);
+	$story_ID				=	trim($_POST['storyID']);
+	
+	$add_story	=	mysqli_query( $connection, "INSERT INTO story_branch 
+		(
+		storyID,
+		userID, 
+		story_branch_title,
+		story_branch_content
+		)
+		VALUES
+		(
+		'$story_ID',
+		'".$_SESSION['id']."',
+		'$story_title',
+		'$story_branch_content'
+	)");
 
+	if ($add_story) {
 
+		header("Location:story-write.php");
+	}
+}
 
 
 ?>
