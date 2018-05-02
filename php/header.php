@@ -1,9 +1,15 @@
 <?php
   
   /*Settings sayfası için gerekli bilgiler çekildi*/
-  $sql = mysqli_query( $connection , "SELECT * FROM kullanicilar WHERE user_name = '".$_SESSION['username']."'");
-  $data = mysqli_fetch_array($sql);
-  
+  $sql     =  mysqli_query( $connection , "SELECT * FROM kullanicilar WHERE user_name = '".$_SESSION['username']."'");
+  $data    =  mysqli_fetch_array($sql);
+
+  $stories =  mysqli_query( $connection , "SELECT * FROM stories WHERE userID = '".$_SESSION['id']."'");
+
+  @$story_details = mysqli_query( $connection , "SELECT story_content FROM stories WHERE userID = '".$_SESSION['id']."' and storyID = '".$_GET['storyid']."'"); 
+  $story_content  =  mysqli_fetch_array($story_details);
+
+  @$story_branch  = mysqli_query( $connection , "SELECT * FROM story_branch WHERE storyID = '".$_GET['id']."'"); 
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +24,7 @@
   <link rel="stylesheet" href="../css/fontawesome.min.css">
   <link rel="stylesheet" href="../css/create.css">
   <link rel="stylesheet" href="../css/create-content.css">
+  <link rel="stylesheet" href="../css/story-details.css">
   <link rel="stylesheet" href="../css/profile.css">
   <link rel="stylesheet" href="../css/settings.css">
   <link rel="stylesheet" href="../css/slider.css">

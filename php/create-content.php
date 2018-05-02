@@ -5,20 +5,21 @@
   <div class="create-content">
     <form action="transaction.php" method="POST">
       <div class="story-cover">
-        <img src="../img/book1.jpg" alt="" height="300" width="200" id="story-upload">
+        <img src="../img/story_photo/story_photo.png" alt="" height="300" width="200" id="story-upload">
         <input type="file" name="story-cover-file" id="story-cover-file" hidden="hidden">
+
+        <input type="submit" name="story-cover-save" value="Photo Save" class="button">
       </div>
-      
       <div class="story-info">
 
         <h2>Title</h2>
-        <input type="text" name="story-title" placeholder="Untitled Story" class="input" required="required">
-        
+        <input type="text" name="story-title" placeholder="Untitled Story" class="input">
+
         <h2>Description</h2>
-        <textarea name="story-desc" id="" cols="50" rows="10" required="required"></textarea>
+        <textarea name="story-desc" id="" cols="50" rows="10"></textarea>
 
         <h2>Genre</h2>
-        <select name="select-genre" class="input" required="required">
+        <select name="select-genre" class="input">
           <option value="-1">Select a genre</option>
           <option value="14">Action</option>
           <option value="11">Adventure</option>
@@ -50,8 +51,8 @@
 </div>  
 
 <!--Js-->
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  <script src="../js/customize.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="../js/customize.js"></script>
 
 </body>
 </html>
