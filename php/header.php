@@ -5,11 +5,18 @@
   $data    =  mysqli_fetch_array($sql);
 
   $stories =  mysqli_query( $connection , "SELECT * FROM stories WHERE userID = '".$_SESSION['id']."'");
+  //-------------
 
-  @$story_details = mysqli_query( $connection , "SELECT story_content FROM stories WHERE userID = '".$_SESSION['id']."' and storyID = '".$_GET['storyid']."'"); 
-  $story_content  =  mysqli_fetch_array($story_details);
+  @$all_users_sql =  mysqli_query( $connection , "SELECT DISTINCT userID,full_name FROM story_branch");
 
-  @$story_branch  = mysqli_query( $connection , "SELECT * FROM story_branch WHERE storyID = '".$_GET['id']."'"); 
+  //-------------
+  @$max_story_ID_sql = mysqli_query( $connection , "SELECT max(storyID) as storyID FROM stories WHERE userID = '".$_SESSION['id']."'"); 
+  $storyID  =  mysqli_fetch_array($max_story_ID_sql);
+
+  @$story_branch  = mysqli_query( $connection , "SELECT * FROM story_branch WHERE storyID = '".$_GET['id']."'");
+  @$story_branch_fill_sql  = mysqli_query( $connection , "SELECT * FROM story_branch WHERE story_branchID = '".$_GET['wstory_id']."'"); 
+
+  $story_branch_fill = mysqli_fetch_array($story_branch_fill_sql);
 ?>
 
 <!DOCTYPE html>
@@ -85,16 +92,16 @@
         <div class="search">
           <form action="search.php" method="POST">
             <input id="search" name="aranan" placeholder="Hikaye & Kişi Ara" type="text" />
-            <input id="btn-search" name="ara" type="submit" value="" title="Ara" />
+            <input id="btn-search" name="search" type="submit" value="" title="Ara" />
           </form>
         </div>
 
         <div class="setting">
           <li class="dropdown-settings">
-            <a href="javascript:void(0)" class="dropbtn"><?=$data['full_name']?></a>
+            <a href="javascript:void(0)" class="dropbtn"><?=$data['user_name']?></a>
             <div class="dropdown-content">
-              <a href="profile.php">Profilim</a>
-              <a href="reading-list.php">Okuma Listem</a>
+              <a href="profile.php?uid=<?=$_SESSION['id']?>">Profilim</a>
+              <a href="reading-list.php?ruid=<?=$_SESSION['id']?>">Okuma Listem</a>
               <a href="#">Hikayelerim</a>            
               <a href="settings.php">Ayarlar</a>
               <a href="logout.php">Çıkış</a>
