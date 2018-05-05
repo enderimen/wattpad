@@ -10,6 +10,15 @@
 	background-color: gray;
 }
 
+.timeline-image a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.timeline-image a:hover {
+	text-decoration: underline;
+}
+
 .timeline-image img{
 	height: 96px;
 	width: 96px;
@@ -58,10 +67,13 @@
     border-bottom-color: coral;
 }
 
+.tab form input[type="submit"]{
+	margin-top: 5px;
+	float: right;
+}
+
 .tabcontent {
     display: none;
-    padding: 6px 12px;
-    border-top: none;
     padding-left: 0;
     margin-top: 20px;
 }
@@ -74,18 +86,26 @@
 
 #about{
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
+}
+
+#about a {
+	text-decoration: none;
+	text-align: center;
+	line-height: 40px;
 }
 
 .bio{
-	height: 243px;
+	height: 240px;
 	width: 350px;
 	display: flex;
+	flex: 1;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	border-radius: 5px;
-	background-color: yellow;
+	border: 1px solid gray;
+	margin-right: 5px;
 }
 
 .bio input{
@@ -93,13 +113,20 @@
 	margin-bottom: 20px; 
 }
 
+.story-list {
+	display: flex;
+	flex-direction: column;
+	flex: 2;
+	border: 1px solid gray;
+	border-radius: 5px;
+}
+
 .myStory{
 	height: 100%;
-	border: 1px solid gray;
-	flex:1; 
 	display: flex;
 	flex-direction: column;
 	margin-left: 20px;
+	margin-bottom: 10px;
 	border-radius: 5px;
 }
 
@@ -109,6 +136,7 @@
 
 .storyDetails{
 	display: flex;
+	height: 200px;
 }
 
 .storyDetails .storyCover img{
@@ -173,10 +201,11 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 250px;
+	height: 275px;
 	width: 250px;
 	border-radius: 5px;
-	box-shadow: 5px 5px 5px gray;
+	box-shadow: 1px 1px 1px gray;
+	margin-right: 10px;
 }
 
 .card-cover {
@@ -193,11 +222,12 @@
 }
 
 .card-cover #card-profile-image {
-	height: 48px;
-	width: 48px;
-	top: 70px;
-	left: 100px;
+	height: 64px;
+	width: 64px;
+	top: 60px;
+	left: 95px;
 	position: absolute; 
+	border-radius: 50px;
 }
 
 .card-content {
@@ -205,10 +235,16 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 150px;
+	height: 175px;
 	width: 250px;
 	border-radius: 0 0 5px 5px;
-	background-color: yellow;
+	background-color: #fff;
+	font-size: 14px;
+}
+
+.card-content form input[type="submit"] {
+	margin: 0 auto;
+	margin-top: 1px !important;
 }
 
 .card-other {
@@ -237,8 +273,4 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-}
-.green {
-	background-color: green;
-	margin:0;
 }
