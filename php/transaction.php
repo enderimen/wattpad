@@ -56,7 +56,7 @@ if (isset($_POST['signup'])) {
 				$username	=	trim($_POST['username']);
 				$password	=	md5(trim($_POST['password']));
 
-				$sql	=	mysqli_query( $connection, "SELECT * FROM kullanicilar 
+				$sql	=	mysqli_query( $connection, "SELECT id , user_name , full_name FROM kullanicilar 
 					WHERE 
 					user_name = '$username'
 					AND
@@ -70,6 +70,7 @@ if (isset($_POST['signup'])) {
 					$_SESSION['session_control'] = true;
 					$_SESSION['id'] = $data['id'];
 					$_SESSION['username'] = $data['user_name'];
+					$_SESSION['fullname'] = $data['full_name'];
 
 					header("refresh:0.02; url=index.php");
 					return;
@@ -91,28 +92,26 @@ if (isset($_POST['signup'])) {
 				$gender			=	trim($_POST['gender']);	
 				$biography		=	trim($_POST['about']);	
 
-				/*if ($last_password == $new_password) {*/
-
-					$update = mysqli_query( $connection, "UPDATE kullanicilar 
-						SET 
-						user_name = '$username',
-						full_name = '$fullname',
-						user_mail = '$usermail',
-						profile_photo = ' ',
-						birthdate = '$birthdate',
-						gender = '$gender',
-						biography = '$biography'
-						WHERE 
-						user_name = '".$_SESSION['username']."'
-						");
-					if ($update) {
-						header("refresh:0.02; url=settings.php");
-					}
+				$update = mysqli_query( $connection, "UPDATE kullanicilar 
+					SET 
+					user_name = '$username',
+					full_name = '$fullname',
+					user_mail = '$usermail',
+					profile_photo = ' ',
+					birthdate = '$birthdate',
+					gender = '$gender',
+					biography = '$biography'
+					WHERE 
+					user_name = '".$_SESSION['username']."'
+					");
+				if ($update) {
+					header("refresh:0.02; url=settings.php");
 				}
+			}
 
 //  Profil fotoğrafı değiştirme
 
-if(isset($_POST['profile-save-button'])){
+			if(isset($_POST['profile-save-button'])){
 
     if ($_FILES["profile-image-file"]["size"] < 1024*1024*1024*1024){//Dosya boyutu 2Mb tan az olsun
 
@@ -128,30 +127,30 @@ if(isset($_POST['profile-save-button'])){
 
     			$add=mysqli_query($connection,"UPDATE kullanicilar SET profile_photo = '".$yeni_ad."' WHERE id = '".$_SESSION['id']."'");
 
-    			if (mysqli_affected_rows($connection)){
+    			if (mysqli_affected_rows($connection)) {
     				echo '<script language="javascript">
     				alert("Profil Resmi kaydedildi.");
     				</script>';    
-    				header("Location:settings.php"."?id=".$_SESSION['id']);
+    				header("refresh:0.05;url=settings.php"."?id=".$_SESSION['id']);
     			}                                                         
-    			else{
-    				header("Location:settings.php"."?id=".$_SESSION['id']);
+    			else {
+    				header("refresh:0.05;url=settings.php"."?id=".$_SESSION['id']);
     			}
-    		}else{
+    		} else {
     			echo '<script language="javascript">
     			alert("Dosya Yüklenemedi!");
     			</script>'; 
 
-    			header("Location:settings.php"."?id=".$_SESSION['id']);
+    			header("refresh:0.05;url=settings.php"."?id=".$_SESSION['id']);
     		}
-    	}else{
-    		header("Location:settings.php"."?id=".$_SESSION['id']); 
+    	} else {
+    		header("refresh:0.05;url=settings.php"."?id=".$_SESSION['id']); 
     	}
     }else{
     	echo '<script language="javascript">
     	alert("Dosya boyutu 2 Mb ı geçemez!");
     	</script>'; 
-    	header("Location:settings.php"."?id=".$_SESSION['id']);
+    	header("refresh:0.05;url=settings.php"."?id=".$_SESSION['id']);
     }
 }
 
@@ -177,26 +176,26 @@ if(isset($_POST['background-save-button'])){
     				echo '<script language="javascript">
     				alert("Zaman Tüneli Fotoğrafı kaydedildi.");
     				</script>';    
-    				header("Location:settings.php"."?id=".$_SESSION['id']);
+    				header("refresh:0.05;url=settings.php"."?id=".$_SESSION['id']);
     			}                                                         
     			else{
-    				header("Location:settings.php"."?id=".$_SESSION['id']);
+    				header("refresh:0.05;url=settings.php"."?id=".$_SESSION['id']);
     			}
     		}else{
     			echo '<script language="javascript">
     			alert("Dosya Yüklenemedi!");
     			</script>'; 
 
-    			header("Location:settings.php"."?id=".$_SESSION['id']);
+    			header("refresh:0.05;url=settings.php"."?id=".$_SESSION['id']);
     		}
     	}else{
-    		header("Location:settings.php"."?id=".$_SESSION['id']); 
+    		header("refresh:0.05;url=settings.php"."?id=".$_SESSION['id']); 
     	}
     }else{
     	echo '<script language="javascript">
     	alert("Dosya boyutu 2 Mb ı geçemez!");
     	</script>'; 
-    	header("Location:settings.php"."?id=".$_SESSION['id']);
+    	header("refresh:0.05;url=settings.php"."?id=".$_SESSION['id']);
     }
 }
 
@@ -225,30 +224,47 @@ if (isset($_POST['save-story-info'])) {
 
 	if ($add_story) {
 
-		header("Location:story-write.php");
+		header("refresh:0.05;url=story-write.php");
 	}
 }
 
 // Yazılan hikayeyi kaydediyoruz
 
-if (isset($_POST['story-content-save'])) {
+if (isset($_POST['story-branch-save'])) {
 
-	$story_content	=	trim($_POST['story-content']);
+	$story_branch_title		=	trim($_POST['story-branch-title']);
+	$story_branch_content	=	trim($_POST['story-branch-content']);
+	$story_ID				=	trim($_POST['storyID']);
 	
-	$add_story_content = mysqli_query($connection,"UPDATE stories SET story_content = '".$story_content."' WHERE userID = '".$_SESSION['id']."'");
+	$add_story	=	mysqli_query( $connection, "INSERT INTO story_branch 
+		(
+		storyID,
+		userID,
+		full_name,
+		story_branch_title,
+		story_branch_content
+		)
+		VALUES
+		(
+		'$story_ID',
+		'".$_SESSION['id']."',
+		'".$_SESSION['fullname']."',
+		'$story_branch_title',
+		'$story_branch_content'
+	)");
 
-	if ($add_story_content) {
+	if ($add_story) {
 
 		echo '<script language="javascript">
 		alert("Story Saved!");
 		</script>'; 
-		header("Location:create-content.php");
+
+		header("refresh:0.05;url=story-write.php");
 	}
 }
 
 
 // Hikayenin kapak resmini güncelliyoruz.
-
 if(isset($_POST['story-cover-save'])){
 
     if ($_FILES["story-cover-file"]["size"] < 1024*1024*1024*1024){//Dosya boyutu 2Mb tan az olsun
@@ -261,65 +277,208 @@ if(isset($_POST['story-cover-save'])){
     		$sayi_tut = rand(1,10000);
     		$yeni_ad = "../img/story_photo/photo".$uret[rand(0,4)].$sayi_tut.$uzanti;
 
-    		$story_photo_update = mysqli_query($connection,"UPDATE stories SET story_photo = '".$yeni_ad."' WHERE userID = '".$_SESSION['id']."'");
-
     		if (move_uploaded_file($_FILES["story-cover-file"]["tmp_name"] , $yeni_ad)){
 
+    			$story_photo_update = mysqli_query($connection,"UPDATE stories SET story_photo = '".$yeni_ad."' WHERE storyID = '".$_POST['storyID']."'");
 
     			if (mysqli_affected_rows($connection)){
     				echo
     				'<script language="javascript">
     				alert("Kapak Fotoğrafı Güncellendi.");
     				</script>';    
-    				header("Location:create-content.php");
+    				header("refresh:0.05;url=story-write.php");
     			}                                                         
     			else{
-    				header("Location:create-content.php");
+    				header("refresh:0.05;url=story-write.php");
     			}
     		}else{
     			echo '<script language="javascript">
     			alert("Dosya Yüklenemedi!");
     			</script>'; 
-
-    			header("Location:create-content.php");
+    			header("refresh:0.05;url=story-write.php");
     		}
     	}else{
-    		header("Location:create-content.php"); 
+    		header("refresh:0.05;url=story-write.php");
     	}
     }else{
     	echo '<script language="javascript">
     	alert("Dosya boyutu 2 Mb ı geçemez!");
     	</script>'; 
-    	header("Location:create-content.php");
+    	header("refresh:0.05;url=story-write.php");
     }
 }
 
-if (isset($_POST['story-branch-save'])) {
+// Yazılan hikayeyi güncelliyoruz
 
-	$story_title			=	trim($_POST['story-title']);
-	$story_branch_content	=	trim($_POST['story-branch-content']);
-	$story_ID				=	trim($_POST['storyID']);
+if (isset($_POST['story-branch-update'])) {
+
+	$story_branch_edit_title		=	trim($_POST['story-branch-edit-title']);
+	$story_branch_edit_content		=	trim($_POST['story-branch-edit-content']);
+	$story_ID						=	trim($_POST['storyID']);
 	
-	$add_story	=	mysqli_query( $connection, "INSERT INTO story_branch 
-		(
-		storyID,
-		userID, 
-		story_branch_title,
-		story_branch_content
-		)
-		VALUES
-		(
-		'$story_ID',
-		'".$_SESSION['id']."',
-		'$story_title',
-		'$story_branch_content'
-	)");
+	$update_story	=	mysqli_query( $connection, "UPDATE story_branch 
+		SET 
+		story_branch_title = '$story_branch_edit_title',
+		story_branch_content = '$story_branch_edit_content'
+		WHERE 
+		story_branchID = '".$story_ID."'
+		");
 
-	if ($add_story) {
+	if ($update_story) {
 
-		header("Location:story-write.php");
+		echo '<script language="javascript">
+		alert("Story Updated!");
+		</script>';
+
+		header("refresh:0.05;url=story-edit.php?wstory_id=".$story_ID."");
 	}
 }
 
+
+// Takip Et
+
+if (isset($_POST['follow'])) {
+
+	$followingID		=	trim($_POST['followingID']);
+	$following_name		=	trim($_POST['following_name']);
+	$uid				=	trim($_POST['uid']);
+	
+	$control_query 		=	mysqli_query( $connection, "SELECT * FROM followers 
+		WHERE 
+		followingID = '$followingID' 
+		and
+		followerID = '".$_SESSION['id']."'"
+	);
+
+	if (mysqli_num_rows($control_query) > 0) {
+
+		echo '<script language="javascript">
+		alert("Kişi zaten takip ediliyor.!");
+		</script>'; 
+
+		header("refresh:0.01;url=profile.php?uid=".$uid."");
+
+	} else {
+
+		$add_follower	=	mysqli_query( $connection, "INSERT INTO followers 
+			(
+			followerID,
+			follower_name,
+			followingID,
+			following_name
+			)
+			VALUES
+			(
+			'".$_SESSION['id']."',
+			'".$_SESSION['username']."',
+			'$followingID',
+			'$following_name'
+		)");
+
+		if ($add_follower) {
+
+			echo '<script language="javascript">
+			alert("Following!");
+			</script>'; 
+
+			header("refresh:0.05;url=profile.php?uid=".$uid."");
+		}
+	}
+}
+
+// Takibi Bırak
+
+if (isset($_POST['unfollow'])) {
+
+	$followingID		=	trim($_POST['followingID']);
+	$following_name		=	trim($_POST['following_name']);
+	$uid				=	trim($_POST['uid']);
+	
+	$control_query 		=	mysqli_query( $connection, "DELETE FROM followers 
+		WHERE 
+		followingID = '$followingID'
+		and
+		followerID = '".$_SESSION['id']."'"
+	);
+
+	if (mysqli_num_rows($control_query) > 0) {
+
+		echo '<script language="javascript">
+		alert("Kişi takipten çıkarıldı.!");
+		</script>'; 
+
+		header("refresh:0.01;url=profile.php?uid=".$uid."");
+	}
+}
+
+// Okuma listeme ekle 
+
+if (isset($_POST['add_read_list'])) {
+
+	$rstoryID	=	trim($_POST['rstoryID']);
+	$story_authorID = trim($_POST['userID']);
+
+	$control_query 	=	mysqli_query( $connection, "SELECT * FROM reading_list 
+		WHERE 
+		readerID = '".$_SESSION['id']."'
+		and
+		readed_storyID = '".$story_authorID."'"
+	);
+
+	if (mysqli_num_rows($control_query) > 0) {
+
+		echo '<script language="javascript">
+		alert("Kitap zaten listenizde!");
+		</script>'; 
+
+		header("refresh:0.05;url=story-read.php?rstory_id=".$rstoryID."");
+
+	} else {
+	$read_list_query 	=	mysqli_query( $connection, "INSERT INTO reading_list 
+			(
+			readerID,
+			readed_storyID,
+			story_authorID
+			)
+			VALUES
+			(
+			'".$_SESSION['id']."',
+			'$rstoryID',
+			'$story_authorID'
+		)");
+
+		if ($read_list_query) {
+
+			echo '<script language="javascript">
+			alert("Listene Eklendi!");
+			</script>'; 
+
+			header("refresh:0.05;url=story-read.php?rstory_id=".$rstoryID."");
+		}
+	}
+}
+
+// Okuma listesinden çıkar
+
+if (isset($_POST['un_read_list'])) {
+
+	$storyID	=	trim($_POST['rstoryID']);
+	
+	$un_read_list_sql	=	mysqli_query( $connection, "DELETE FROM reading_list 
+		WHERE 
+		readed_storyID = '$storyID'
+		and
+		readerID = '".$_SESSION['id']."'"
+	);
+
+	if ($un_read_list_sql)  {
+
+		echo '<script language="javascript">
+		alert("Listeden çıkarıldı.!");
+		</script>'; 
+
+		header("refresh:0.05;url=story-read.php?rstory_id=".$storyID."");
+	}
+}
 
 ?>
