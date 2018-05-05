@@ -34,6 +34,7 @@
   <link rel="stylesheet" href="../css/story-details.css">
   <link rel="stylesheet" href="../css/profile.css">
   <link rel="stylesheet" href="../css/settings.css">
+  <link rel="stylesheet" href="../css/search.css">
   <link rel="stylesheet" href="../css/slider.css">
   <link rel="stylesheet" href="../css/jquery.jscrollpane.css">
   <link rel="stylesheet" href="../css/reading-list.css">
@@ -91,8 +92,8 @@
 
         <div class="search">
           <form action="search.php" method="POST">
-            <input id="search" name="aranan" placeholder="Hikaye & Kişi Ara" type="text" />
-            <input id="btn-search" name="search" type="submit" value="" title="Ara" />
+            <input id="search" name="search_value" placeholder="Hikaye & Kişi Ara" type="text" />
+            <input id="btn-search" name="search_button" type="submit" value="" title="Ara" />
           </form>
         </div>
 
