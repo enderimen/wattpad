@@ -10,7 +10,6 @@
         </div>
 
         <?php while ($story_data = mysqli_fetch_array($stories)) { ?>
-
         <div class="content">
           <img src="<?=$story_data['story_photo']?>" alt="Cover Image" title="Cover" class="image-style">
           <div class="story-detail">
