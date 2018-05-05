@@ -6,7 +6,7 @@
 	position:relative;
 	margin:25px auto 20px auto;
 	width:1000px;
-	height:400px;
+	height:360px;
 }
 .ca-wrapper{
 	width:100%;
@@ -19,6 +19,17 @@
 	height:100%;
 	text-align:center;
 }
+
+.ca-item span a {
+	text-decoration: none; 
+	font-weight: bold;
+	color: #000;
+}
+
+.ca-item span a:hover {
+	text-decoration: underline;
+}
+
 .ca-item-main{
 	display: flex;
 	padding:20px;
@@ -49,13 +60,17 @@
 }
 
 .story-description {
-	text-align: justify;
+	text-align: left;
+	font-weight: normal;
+	padding-top: 5px;
+	padding-bottom: 5px; 
 }
 
 .label {
-	height: 30px;
-	width: 80px;
-	line-height: 30px;
+	height: 20px;
+	width: 100%;
+	padding: 3px;
+	line-height: 20px;
 	border: 1px solid gray;
 	border-radius: 40px;
 	text-align: center;
