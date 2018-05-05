@@ -5,7 +5,7 @@
 
 /*Menu*/
 body{
-	font-family: "Arial";
+	font-family: Tahoma;
 	font-weight: bold;
 }
 
@@ -15,11 +15,116 @@ header{
 	background-color: #F89B33;
 }
 
+/*-------------*/
+
+/* The Modal (background) */
+.container .modal {
+    display: none;
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.5);
+}
+
+.container .myBtn:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Modal Content */
+.container .modal-content {
+    height: 340px;
+    width: 450px;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #888;
+}
+
+.container .modal-content .modal-image-details,.modal-story-details {
+  height: 350px;
+  width: 225px;
+  margin-top: 5px; 
+  float: left;
+  font-weight: normal;
+}
+
+.container .modal-content .modal-story-details form a{
+  text-decoration: none;
+}
+
+/* The Close Button */
+.container .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.container .close:hover,
+.container .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*--------------*/
+
+
+.story-cover {  /*Story-Write.php kapak resmi*/
+  margin-top: 85px;
+}
+
+.container form .story-menus {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 250px;
+  border: 1px solid gray; 
+}
+
+.container form .menu {
+  height: 50px;
+  width: 250px;
+  border: 1px solid gray; 
+  line-height: 50px;
+  text-decoration: none;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.container form .menu:hover { 
+  background-color: #ffccbc;
+}
+
+.container form .story-read-content { /*Story-read.php content*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 2;
+  font-weight: normal;
+  width: 450px;
+  text-align: justify; 
+}
+
 .flex-column {
   display: flex; 
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.flex-row {
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
 .mind {
@@ -52,49 +157,49 @@ header{
 }
 
 #menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
 }
 
 #menu li {
-    float: left;
-    line-height: 25px;
-    list-style: none;
+  float: left;
+  line-height: 25px;
+  list-style: none;
 }
 
 #menu li a, .dropbtn {
-    display: inline-block;
-    color: #fff;
-    text-align: left;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  text-align: left;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 #menu li a:hover, .dropdown:hover .dropbtn , .dropdown-settings:hover .dropbtn {
-    background-color: #F78F1A;
-    transition: 0.3s;
+  background-color: #F78F1A;
+  transition: 0.3s;
 }
 
 #menu li.dropdown, li.dropdown-discover, li.dropdown-settings {
-   display: inline-block;
+ display: inline-block;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #cfcfcf;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: #cfcfcf;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
 .dropdown-content a {
-    padding: 12px 16px;
-    text-decoration: none;
-   	display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 
 .dropdown-content a:hover {
@@ -102,18 +207,18 @@ header{
 }
 
 .dropdown:hover .dropdown-content {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .dropdown-discover:hover .dropdown-content {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .dropdown-settings:hover .dropdown-content {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 /*container*/
@@ -150,7 +255,7 @@ header{
 }
 
 .search #search:focus{
-   outline: none;
+ outline: none;
 }
 
 .search #btn-search{
