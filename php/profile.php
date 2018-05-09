@@ -7,7 +7,7 @@ if ($_SESSION['session_control'] == true) {
     $control_query = mysqli_query($connection, "SELECT * FROM kullanicilar WHERE id = '".$_GET["uid"]."'");
     $user_data = mysqli_fetch_array($control_query);
 
-    $follower_query = mysqli_query($connection, "SELECT followingID , following_name FROM followers WHERE followerID  = '".$_GET["uid"]."'");
+    $follower_query = mysqli_query($connection, "SELECT followingID ,following_name FROM followers WHERE followerID  = '".$_GET["uid"]."'");
 
     $story_sql = mysqli_query($connection, "SELECT * FROM stories WHERE userID = '".$_GET["uid"]."'");
 
@@ -27,7 +27,7 @@ if ($_SESSION['session_control'] == true) {
       ?>
 
       <div class="timeline-image" style="background-position: bottom;background-image: url(<?=$user_data['background_image']?>);">
-        <img src="<?=$data['profile_photo']?>" alt="Avatar">
+        <img src="<?=$user_data['profile_photo']?>" alt="Avatar">
         <h1><?=$user_data['full_name']?></h1>
         <p>@<?=$user_data['user_name']?></p>
 
@@ -42,15 +42,16 @@ if ($_SESSION['session_control'] == true) {
           </div>
           <div class="followers">
             <span><?=$follower_count['follower_count']?></span>
-            <div>Followers</div>
+            <div>Following</div>
           </div>
         </div>
       </div>
 
       <div class="container">
         <div class="tab">
-          <button class="tablinks" onclick="openTab(event, 'about')">About</button>
-          <button class="tablinks" onclick="openTab(event, 'following')">Following</button>
+          <button class="tablinks" onclick="openTab(event, 'about')">Hakkımda</button>
+          <button class="tablinks" onclick="openTab(event, 'conversation')">Konuşmalar</button>
+          <button class="tablinks" onclick="openTab(event, 'following')">Takip Edilenler</button>
 
           <form action="transaction.php" method="POST">
 
@@ -117,6 +118,20 @@ if ($_SESSION['session_control'] == true) {
 
               $following_query = mysqli_query($connection, "SELECT * FROM kullanicilar WHERE id = '".$follower_data['followingID']."'");
               $following_data = mysqli_fetch_array($following_query);
+
+              //  Kişiyi takip eden kişi sayısı
+              $follower_count_query = mysqli_query($connection, "SELECT count(followerID) as follower_count FROM followers WHERE followerID  = '".$follower_data['followingID']."'");
+              $follower_count_data = mysqli_fetch_array($follower_count_query);
+
+              //  Kişinin takip ettiği kişi sayısı
+              $following_count_query = mysqli_query($connection, "SELECT count(followingID) as following_count FROM followers WHERE followingID  = '".$follower_data['followingID']."'");
+              $following_count_data = mysqli_fetch_array($following_count_query);
+
+               // Okuma listesindeki toplam kitap sayısı
+              $read_story_count_sql = mysqli_query($connection, "SELECT count(readerID) as read_story_count FROM reading_list WHERE readerID = '".$follower_data['followingID']."'");
+              $read_story_count = mysqli_fetch_array($read_story_count_sql);
+
+
               ?>
               <div class="cardview">
                 <div class="card-cover">
@@ -144,15 +159,15 @@ if ($_SESSION['session_control'] == true) {
                   </form>
                   <div class="card-other">
                     <div class="card-works">
-                      <span>8</span>
+                      <span><?=$read_story_count['read_story_count']?></span>
                       <span>Works</span>
                     </div>
                     <div class="card-following">
-                      <span>8</span>
+                      <span><?=$follower_count_data['follower_count']?></span>
                       <span>Following</span>
                     </div>
                     <div class="card-followers">
-                      <span>8</span>
+                      <span><?=$following_count_data['following_count']?></span>
                       <span>Followers</span>
                     </div>
                   </div>
@@ -161,9 +176,13 @@ if ($_SESSION['session_control'] == true) {
 
               <?php } ?>
             </div>
+
+            <div id="conversation" class="tabcontent">
+              <h1>Konuşmalar</h1>
+            </div>
           </div>
 
-          <?php } 
+      <?php } 
         } 
       } else{
         header("Location:login.php");
