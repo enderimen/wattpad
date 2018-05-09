@@ -17,6 +17,8 @@
   @$story_branch_fill_sql  = mysqli_query( $connection , "SELECT * FROM story_branch WHERE story_branchID = '".$_GET['wstory_id']."'"); 
 
   $story_branch_fill = mysqli_fetch_array($story_branch_fill_sql);
+
+  @$story_category_sql  = mysqli_query( $connection , "SELECT category_name FROM categories"); 
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +32,8 @@
   <!--Css-->
   <link rel="stylesheet" href="../css/fontawesome.min.css">
   <link rel="stylesheet" href="../css/create.css">
+  <link rel="stylesheet" href="../css/story-read.css">
+  <link rel="stylesheet" href="../css/category.css">
   <link rel="stylesheet" href="../css/create-content.css">
   <link rel="stylesheet" href="../css/story-details.css">
   <link rel="stylesheet" href="../css/profile.css">
@@ -65,16 +69,11 @@
           <li class="dropdown-discover">
             <a href="javascript:void(0)" class="dropbtn">Keşfet</a>
             <div class="dropdown-content">
-              <a href="#">Random</a>
-              <a href="#">Adventure</a>
-              <a href="#">Horror</a>
-              <a href="#">Romance</a>
-              <a href="#">Anime</a>    
-              <a href="#">Science Fiction</a>
-              <a href="#">Billionaire</a>
-              <a href="#">ChickLit</a>
-              <a href="#">Paranormal</a>
-              <a href="#">Fantasy</a>                     
+              
+              <?php while($story_category_data = mysqli_fetch_array($story_category_sql)) { ?>
+              <a href="category.php?category=<?=$story_category_data['category_name']?>"><?=$story_category_data['category_name']?></a>
+              <?php } ?>
+
             </div>
           </li>
           <li><a href="create.php">Oluştur</a></li>
