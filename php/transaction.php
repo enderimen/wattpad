@@ -481,4 +481,62 @@ if (isset($_POST['un_read_list'])) {
 	}
 }
 
+
+// Hikayeye yorum yapma
+
+if (isset($_POST['comment-button'])) {
+
+	$comment	=	trim($_POST['comment']);
+	$rstoryID	=	trim($_POST['rstoryID']);
+	$userID		=	trim($_POST['userID']);
+	
+	$add_story_comment	=	mysqli_query( $connection, "INSERT INTO comments 
+		(
+		storyID, 
+		story_authorID, 
+		comment_authorID, 
+		comment
+		)
+		VALUES
+		(
+		'$rstoryID',
+		'$userID',
+		'".$_SESSION['id']."',
+		'$comment'
+	)");
+
+	if ($add_story_comment) {
+
+		header("refresh:0.05;url=story-read.php?rstory_id=".$rstoryID."");
+	}
+}
+// Hikayedeki yorum yorum yapma
+
+if (isset($_POST['comment-to-comment-button'])) {
+
+	$comment_to 	=	trim($_POST['comment_to']);
+	$rstoryID		=	trim($_POST['rstoryID']);
+	$commentID		=	trim($_POST['commentID']);
+
+
+	echo $comment_to.$rstoryID.$commentID;	
+	
+	$add_comment_to_comment_sql	=	mysqli_query( $connection, "INSERT INTO comment_to_comment 
+		(
+		c_t_c_content,
+		commentID, 
+		c_to_c_authorID
+		)
+		VALUES
+		(
+		'$comment_to',
+		'$commentID',
+		'".$_SESSION['id']."'
+	)");
+
+	if ($add_comment_to_comment_sql) {
+
+		header("refresh:0.05;url=story-read.php?rstory_id=".$rstoryID."");
+	}
+}
 ?>
