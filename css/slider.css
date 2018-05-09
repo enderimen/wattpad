@@ -78,10 +78,9 @@
 	cursor: pointer;
 }
 
-.label:hover{
-	background-color: #f89b33;
-	border: 1px solid gray; 
-	color: #fff;
+.label a {
+	color: gray;
+	text-decoration: none;
 }
 
 .ca-item h3{
