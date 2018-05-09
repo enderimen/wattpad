@@ -101,17 +101,7 @@ header{
 .container form .menu:hover { 
   background-color: #ffccbc;
 }
-
-.container form .story-read-content { /*Story-read.php content*/
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 2;
-  font-weight: normal;
-  width: 450px;
-  text-align: justify; 
-}
+/*--------------------------------------------*/
 
 .flex-column {
   display: flex; 
