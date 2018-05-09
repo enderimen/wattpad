@@ -13,10 +13,11 @@
 .timeline-image a {
 	text-decoration: none;
 	color: #fff;
+	transition: all .3s ease;
 }
 
 .timeline-image a:hover {
-	text-decoration: underline;
+	font-size: 18px;
 }
 
 .timeline-image img{
