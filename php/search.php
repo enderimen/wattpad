@@ -9,7 +9,7 @@ if ($_SESSION['session_control'] == true) {
 
 		if ($search_value != "") {
 
-			$search_user_sql = mysqli_query($connection, "SELECT user_name , full_name , profile_photo FROM kullanicilar  WHERE full_name OR user_name LIKE '%$search_value%'");
+			$search_user_sql = mysqli_query($connection, "SELECT id, user_name , full_name , profile_photo FROM kullanicilar  WHERE full_name OR user_name LIKE '%$search_value%'");
 
 			$search_story_sql = mysqli_query($connection, "SELECT story_title, story_desc ,story_photo FROM stories  WHERE story_title LIKE '%$search_value%'");
 		}else {
@@ -44,7 +44,7 @@ if ($_SESSION['session_control'] == true) {
 						<img src="<?=$search_user_data['profile_photo']?>" alt="" height="80" width="80">
 						<div class="user-details">
 							<span>
-								<a href=""><?=$search_user_data['full_name']?></a>
+								<a href="profile.php?uid=<?=$search_user_data['id']?>"><?=$search_user_data['full_name']?></a>
 							</span>
 							<span>
 								<a href=""><?=$search_user_data['user_name']?></a>
