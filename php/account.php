@@ -41,7 +41,7 @@
       <div class="account-form">
         <h1>Create Account</h1>
         <form action="transaction.php" method="POST">
-          <input type="text" name="mail" placeholder="E-Mail" required="required" />
+          <input type="email" name="mail" placeholder="E-Mail" required="required" />
           <input type="text" name="fullname" placeholder="Fullname" required="required" />
           <input type="text" name="username" placeholder="Username" required="required" />
           <input type="password" name="password" placeholder="Password" required="required" />
