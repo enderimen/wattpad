@@ -59,7 +59,7 @@
                         <div class="story-description"><?=$all_users_stories['story_desc']?></div>
                         <div class="slider-labels gray-text">
                             <div class="label">
-                                <?=$all_users_stories['story_genre']?>
+                                <a href="category.php?category=<?=$all_users_stories['story_genre']?>"><?=$all_users_stories['story_genre']?></a>
                             </div>
                         </div>
                     </div>
