@@ -17,6 +17,12 @@
 	padding:5px;
 }
 
+.category-story-details a {
+	color: #444444;
+	font-weight: normal;
+	margin-bottom: 3px;
+}
+
 .category-story-details p , span i {
 	margin-top: 5px;
 	font-weight: normal;
