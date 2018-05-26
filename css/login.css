@@ -15,7 +15,9 @@ body{
 	width: 1200px;
 	height: 50px;
 }
-
+.red-text {
+	color: red;
+}
 header{
 	height: 50px;
 	width: 100%;
@@ -122,6 +124,13 @@ input[type="submit"]:hover{
 	cursor: pointer;
 	border: solid 1px #fff;
 }
+
+form .remember{
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+}
+
 
 input::-webkit-input-placeholder { /* WebKit browsers */
 	text-indent: 2px;
