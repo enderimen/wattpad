@@ -12,7 +12,7 @@
     <script src="js/customize.js"></script>
  
     <!--Css-->
-     <link href="../css/account.css" rel="stylesheet">
+     <link href="css/account.css" rel="stylesheet">
 
     <!--Shortcut icon-->
       <link rel="shortcut icon" href="img/icon.png" type="image/x-icon" />
@@ -39,15 +39,15 @@
         <img src="img/phone.png" alt="">
       </div>
       <div class="account-form">
-        <h1>Create Account</h1>
+        <h1>Hesap Oluştur</h1>
         <form action="transaction.php" method="POST">
-          <input type="email" name="mail" placeholder="E-Mail" required="required" />
-          <input type="text" name="fullname" placeholder="Fullname" required="required" />
-          <input type="text" name="username" placeholder="Username" required="required" />
-          <input type="password" name="password" placeholder="Password" required="required" />
-          <input type="submit" name="signup" value="Create Account"/>
+          <input type="email" name="mail" placeholder="E-Posta" required="required" />
+          <input type="text" name="fullname" placeholder="Tam Adınız" required="required" />
+          <input type="text" name="username" placeholder="Kullanıcı Adınız" required="required" />
+          <input type="password" name="password" placeholder="Şifre" required="required" />
+          <input type="submit" name="signup" value="Oluştur"/>
         </form>
-        <div class="signup"><span>Do you have an account?<a href="login.php">Log in</a></span></div>
+        <div class="signup"><span>Bir hesabın var mı?<a href="login.php"> Giriş Yapın!</a></span></div>
       </div>
     </div>
   </body>

@@ -98,7 +98,7 @@ form{
 	width: 450px;
 }
 
-input[type="text"],input[type="password"]{
+input[type="text"],input[type="password"],input[type="email"]{
 	display: flex;
 	border-radius: 5px;
 	height: 60px;
