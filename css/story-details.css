@@ -18,13 +18,17 @@
 	text-decoration: none;
 }
 
-
-.stroy-card-view {
+.story-card-view {
 	display: flex;
 	height: 80px;
 	background-color: #fff;
 	border: 0.1px solid gray;
 	margin-top: 3px;
+	font-weight: normal;
+}
+
+.story-card-view a {
+	color: #444444;
 }
 
 .title-date {
@@ -45,9 +49,9 @@
 
 .story-rate {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: flex-end;
-	flex: 2;
+	width: 150px;
 }
 
 .story-rate span{
