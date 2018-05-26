@@ -6,7 +6,6 @@
 /*Menu*/
 body{
 	font-family: Tahoma;
-	font-weight: bold;
 }
 
 header{
@@ -15,66 +14,10 @@ header{
 	background-color: #F89B33;
 }
 
-/*-------------*/
-
-/* The Modal (background) */
-.container .modal {
-    display: none;
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 100px; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.5);
+.input {
+  height: 40px;
+  width: 250px;
 }
-
-.container .myBtn:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-/* Modal Content */
-.container .modal-content {
-    height: 340px;
-    width: 450px;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 10px;
-    border: 1px solid #888;
-}
-
-.container .modal-content .modal-image-details,.modal-story-details {
-  height: 350px;
-  width: 225px;
-  margin-top: 5px; 
-  float: left;
-  font-weight: normal;
-}
-
-.container .modal-content .modal-story-details form a{
-  text-decoration: none;
-}
-
-/* The Close Button */
-.container .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.container .close:hover,
-.container .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-/*--------------*/
-
 
 .story-cover {  /*Story-Write.php kapak resmi*/
   margin-top: 85px;
@@ -274,4 +217,31 @@ header{
 
 .setting a{ 
 	color: #fff;
+}
+
+/*Yukarı çık buton*/
+.up{
+    width: 40px;
+    height: 40px;
+    position:fixed; 
+    right: 50px;
+    bottom: 50px;
+    display: none;
+    transition: all .2s ease-in-out;
+    animation: ani--easeout 1.3s infinite;
+}
+
+@keyframes ani--easeout {
+    0% {
+     transform: translateY(0);
+     animation-timing-function: ease-out;
+   }
+   50% {
+     transform: translateY(-15px);
+     animation-timing-function: ease-in;
+   }
+   100% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
 }
