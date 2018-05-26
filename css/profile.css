@@ -77,6 +77,7 @@
     display: none;
     padding-left: 0;
     margin-top: 20px;
+    font-weight: normal;
 }
 
 .show{
@@ -148,53 +149,22 @@
 .story-feature{
 	margin-left: 20px;
 }
+
+.story-feature a {
+	color: #444444;
+	font-weight: normal;
+}
+
 .form-element {
 	margin: 0 auto;
 }
+
 .form-element form{
 	display: flex;
 	flex-direction: column;
 	align-content: center;
 	justify-content: center;
 	width: 400px;
-}
-
-.location {
-	display: flex;
-	flex-grow: 1; 
-	align-items: center;
-	justify-content: space-between;
-}
-
-.about {
-	display: flex;
-	flex-grow: 1; 
-	justify-content: space-between;
-}
-
-.website {
-	display: flex;
-	flex-grow: 1; 
-	align-items: center;
-	justify-content: space-between;
-}
-
-.button-save {
-	display: flex;
-	flex-grow: 1; 
-	justify-content: space-between;
-	margin-right: -20px; 
-}
-
-.location, .about, .website, .button-save {
-	margin-top: 20px;
-}
-
-.input {
-	height: 40px;
-	width: 250px;
-	border-radius: 3px;
-	border: none; 
 }
 
 .cardview {
@@ -274,4 +244,64 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+.conversation-comment form{
+	height: 200px;
+	width: 500px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.conversation-comment img {
+	margin-right: 10px;
+	border-radius: 50px;
+}
+
+.width {
+	width: 300px;
+}
+
+
+.conversation-comment-content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 5px;
+	font-weight: normal;
+	box-shadow: 1px 1px  1px  1px gray;    
+	margin-top: 10px;
+}
+
+.conversation-comment-content img {
+	border-radius: 50px;
+	margin-right: 10px;
+}
+
+.conversation-user-info {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	margin-bottom: 10px;
+}
+
+.conversation-message-reply form{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.dimension {
+	height: 100%;
+	width: 500px;
+	display: flex;
+    flex-direction: column-reverse;
+}
+
+.dimension .conversation-message .reply {
+	margin-top: 10px;
 }

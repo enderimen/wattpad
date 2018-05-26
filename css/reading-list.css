@@ -30,6 +30,17 @@
 	align-items: flex-start;
 }
 
+.reading-cardview-profile-name a {
+	color: #444444;
+	text-decoration: none;
+	font-weight: normal;
+	transition: all .3 ease;
+} 
+
+.reading-cardview-profile-name a:hover {
+	color: #0e0e0e;
+}
+
 .reading-cardview-profile-photo {
 	display: flex;
 	align-items: center;
@@ -38,6 +49,7 @@
 
 .reading-cardview-profile-photo img{ 
 	border-radius: 50%;
+	margin-left: 3px;
 }
 
 .reading-list-user-info {
@@ -45,7 +57,7 @@
 }
 
 .reading-list-other {
-	width: 200px;
+	width: 110px;
 	display: flex;
 	justify-content: space-around;
 }
