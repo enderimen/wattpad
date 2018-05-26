@@ -5,6 +5,11 @@
 	align-items: flex-start;
 }
 
+.search-content a {
+	text-decoration: none;
+	color: #000; 
+}
+
 .search-stories .search-card {
 	display: flex;
 	padding: 5px;
@@ -15,8 +20,10 @@
 	width: 600px;
 	padding: 5px;
 	margin-top: 5px;
-	border: 1px solid gray;
 	transition: all .3s ease;
+	font-weight: normal;
+	box-shadow: 1px 1px 1px #bdbdbd;
+	cursor: pointer;
 }
 
 .search-stories img {
@@ -32,10 +39,11 @@
 	align-items: center;
 	height: 100px;
 	width: 400px;
-	border: 1px solid gray;
+	box-shadow: 1px 1px 1px 1px #bdbdbd;
 	margin-left: 10px;
 	margin-top: 6px;
 	transition: all .3s ease;
+	font-weight: normal;
 }
 
 .search-users:hover {
@@ -57,4 +65,9 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+
+.search-users .user-details a , .search-details a {
+	color: #444444;
+	text-decoration: none; 
 }
