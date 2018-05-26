@@ -12,12 +12,20 @@
 .comment-star {
   height: 100%
   width: 600px;
+  position: relative;
 }
 
 
 .comment-star-head {
   height: 60px;
   width: 600px;
+  position: relative;
+}
+
+.star-like{
+  position: absolute;
+  margin-left: 180px;
+  margin-top: 35px;
 }
 
 .star-like:hover {
@@ -29,6 +37,7 @@
   align-items: center;
   height: 90px;
   width: 100%;
+  margin-top: 50px;
 }
 
 
@@ -86,4 +95,10 @@
 
 .comment-star .comment-to-comment {
   margin: 10px 10px 10px 60px;
+}
+
+.comment-star .star_count {
+  position: absolute;
+  margin-left: 214px;
+  margin-top: 40px;
 }
